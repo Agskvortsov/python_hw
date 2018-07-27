@@ -126,26 +126,139 @@ A = [3, 8, 9, 7, 6]
 # expected worst-case time complexity is O(sqrt(N));
 # expected worst-case space complexity is O(1).
 
-n = 2147483644
+# n = 2147483647
+#
+#
+# def find_factor_of_number(number):
+#     counter = 2
+#     divider = 2
+#     second_divider = int(number/2)
+#     factors = [1, number]
+#     dividers = []
+#     while divider < second_divider:
+#         dividers.append(divider)
+#         if number%divider == 0:
+#             counter += 2
+#             factors.append(divider)
+#             factors.append(int(number/divider))
+#             second_divider = int(number/divider)
+#             divider += 1
+#         else:
+#             divider += 1
+#             second_divider=int(number/divider)
+#
+#     return dividers
+#
+# print(len(find_factor_of_number(n)))
 
 
-def find_factor_of_number(number):
-    counter = 2
-    divider = 2
-    second_divider = int(number/2)
-    factors = [1, number]
-    while divider < second_divider:
-        print(divider, second_divider)
-        if number%divider == 0:
-            counter += 2
-            factors.append(divider)
-            factors.append(int(number/divider))
-            second_divider = int(number/divider)
-            divider += 1
-        else:
-            divider += 1
-            second_divider=int(number/divider)
 
-    return counter, sorted(factors)
 
-print(find_factor_of_number(n))
+# You would like to set a password for a bank account. However, there are three restrictions on the format of the password:
+# it has to contain only alphanumerical characters (a−z, A−Z, 0−9);
+# there should be an even number of letters;
+# there should be an odd number of digits.
+# You are given a string S consisting of N characters. String S can be divided into words by splitting it at, and
+# removing, the spaces. The goal is to choose the longest word that is a valid password. You can assume that if there
+# are K spaces in string S then there are exactly K + 1 words.
+# For example, given "test 5 a0A pass007 ?xy1", there are five words and three of them are valid passwords: "5", "a0A"
+# and "pass007". Thus the longest password is "pass007" and its length is 7. Note that neither "test" nor "?xy1" is a
+# valid password, because "?" is not an alphanumerical character and "test" contains an even number of digits (zero).
+# Write a function:
+# def solution(S)
+# that, given a non-empty string S consisting of N characters, returns the length of the longest word from the string
+# that is a valid password. If there is no such word, your function should return −1.
+# For example, given S = "test 5 a0A pass007 ?xy1", your function should return 7, as explained above.
+# Assume that:
+# N is an integer within the range [1..200];
+# string S consists only of printable ASCII characters and spaces.
+# In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
+
+str = "test ress0003 pass0007 50 a00A rAFess01312 ?xy1"
+
+# def sort_by_len(str):
+#     return len(str)
+#
+# def find_valid_password(str):
+#     words_lsit = str.split(' ')
+#     valid_passwords_list = []
+#     for word in words_lsit:
+#         digit_count = 0
+#         letter_count = 0
+#         if word.isalnum() == True:
+#             for letter in word:
+#                 if letter.isdigit() == True:
+#                     digit_count += 1
+#                 else:
+#                     letter_count += 1
+#             if digit_count%2 != 0 and letter_count%2 == 0:
+#                 valid_passwords_list.append(word)
+#     valid_passwords_list.sort(key=sort_by_len)
+#     try:
+#         valid_passwords_list[-1]
+#         return valid_passwords_list[-1]
+#     except:
+#         return -1
+#
+# print(find_valid_password(str))
+
+
+
+# A string S consisting of N characters is called properly nested if:
+# S is empty;
+# S has the form "(U)" where U is a properly nested string;
+# S has the form "VW" where V and W are properly nested strings.
+# For example, string "(()(())())" is properly nested but string "())" isn't.
+# Write a function:
+# def solution(S)
+# that, given a string S consisting of N characters, returns 1 if string S is properly nested and 0 otherwise.
+# For example, given S = "(()(())())", the function should return 1 and given S = "())", the function should return 0,
+# as explained above.
+# Assume that:
+# N is an integer within the range [0..1,000,000];
+# string S consists only of the characters "(" and/or ")".
+# Complexity:
+# expected worst-case time complexity is O(N);
+# expected worst-case space complexity is O(1) (not counting the storage required for input arguments).
+
+# import re
+#
+# str = '(((a)))((as)(as))(as)'
+#
+# def check_of_nested(str):
+#     if len(str) == 0:
+#         return 1
+#     for s in re.findall(r'\(\w*\)', str):
+#         print(s)
+#         str = str.replace(s, '')
+#     try:
+#         len(str) == 0
+#         print(str, len(str))
+#         return 1
+#     except:
+#         return 0
+#
+#
+#
+#
+# print(check_of_nested(str))
+
+
+
+def nesting(str):
+    open_bracket_counter = 0
+    for s in str:
+        if s == '(' and open_bracket_counter >= 0:
+            open_bracket_counter += 1
+        if s == ')' and open_bracket_counter >= 0:
+            open_bracket_counter -= 1
+        print(s, open_bracket_counter)
+
+    if open_bracket_counter != 0:
+        return 0
+    if open_bracket_counter == 0:
+        return 1
+
+
+
+print(nesting('((((76)(())(()))'))
