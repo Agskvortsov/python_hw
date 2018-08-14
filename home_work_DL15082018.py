@@ -127,12 +127,12 @@ data_to_json(' Name: Peter, Age: 20, Country: USA ')
 # -  путь файла или каталога который необходимо скопировать
 # - путь каталога куда этот файл необходимо скопировать
 
-import shutil
+# import shutil
 
 
-def copy_file(src, dst):
-    shutil.copy(src, dst, follow_symlinks = True)
-
-
-
-copy_file('mylog.log', 'mydir/new_dir1/one_more_dir')
+# def copy_file(src, dst):
+#     shutil.copy(src, dst, follow_symlinks = True)
+#
+#
+#
+# copy_file('mylog.log', 'mydir/new_dir1/one_more_dir')
