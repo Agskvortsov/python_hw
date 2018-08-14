@@ -107,6 +107,11 @@ def string_to_json(str):
     str_as_dict = {}
     for elem in str.split(','):
         str_as_dict[elem.split(':')[0].strip()] = elem.split(':')[1].strip()
+    for key in str_as_dict:
+        try:
+            str_as_dict[key] = int(str_as_dict.get(key))
+        except:
+            pass
     return str_as_dict
 
 
