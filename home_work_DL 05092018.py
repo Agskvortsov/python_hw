@@ -343,8 +343,8 @@ class ShipBatle():
                     player.shoot_result[idx_1][idx_2] = 'X'
                     self.prity_print(player.shoot_result)
                     hit = 0
-        except Exception as error:
-            print("Мимо! В следующий раз делайте выстрел в границах игрового поля", error)
+        except ValueError as error:
+            print("Мимо! В следующий раз делайте выстрел в границах игрового поля")
 
 
 game = ShipBatle()
